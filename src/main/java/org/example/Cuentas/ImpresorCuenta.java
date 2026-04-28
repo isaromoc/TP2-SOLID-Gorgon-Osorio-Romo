@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Cuentas;
 
 public class ImpresorCuenta {
     public void imprimirDetallesCuenta(CuentaBancaria cuenta) {

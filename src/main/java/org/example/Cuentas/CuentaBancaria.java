@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Cuentas;
 
 public class CuentaBancaria {
     private String titular;
