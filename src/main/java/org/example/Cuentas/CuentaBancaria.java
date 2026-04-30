@@ -1,9 +1,9 @@
 package org.example.Cuentas;
 
-public class CuentaBancaria {
+public abstract class CuentaBancaria {
     private String titular;
     private String idCuenta;
-    private double saldo;
+    protected double saldo;
 
     public CuentaBancaria(String titular, String idCuenta, double saldo) {
         this.titular = titular;

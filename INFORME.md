@@ -2,7 +2,8 @@
 Grupo: Gorgon, Osorio, Romo
 
 ## <u>PARTE 1: REFACTORIZAR CÓDIGO</u>
-El principio elegido fue el más básico pero importante de todos: el principio de Single Responsibility. El código presentaba una sola clase "CuentaBancaria" que manejaba 3 responsabilidades distintas: manejar el saldo de la cuenta, imprimir mensajes y enviar notificaciones. Para refactorizar el código eligiendo un solo principio, decidimos separar esta clase en 3 distintas, cada una con su propia responsabilidad: CuentaBancaria que maneje el saldo de la cuenta, Impresos que maneje la impresión de mensajes, y Notificador que maneje el envío de notificaciones.
+El código presentaba una sola clase "CuentaBancaria" que manejaba 3 responsabilidades distintas: manejar el saldo de la cuenta, imprimir mensajes y enviar notificaciones. Para refactorizar el código, decidimos aplicar el Principio de Responsabilidad Única y separar esta clase principal en 3 distintas, cada una con su propia responsabilidad: CuentaBancaria que maneje el saldo de la cuenta, Impresos que maneje la impresión de mensajes, y Notificador que maneje el envío de notificaciones.
+Además, agregamos 2 tipos de cuentas bancarias (cuenta de ahorro y cuenta corriente) y distintos tipos de notificaciones (email, WhatsApp), aplicando los principios de Abierto-Cerrado y Sustitución de Liskov al crear los objetos.  
 
 ## <u>PARTE 2: INFORME</u>
 
