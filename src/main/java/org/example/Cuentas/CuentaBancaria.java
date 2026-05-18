@@ -15,15 +15,9 @@ public abstract class CuentaBancaria {
         saldo += monto;
         System.out.println("Depositado: $" + monto);
     }
+    
 
-    public void retirar(double monto) {
-        if (saldo >= monto) {
-            saldo -= monto;
-            System.out.println("Retirado" + ":" + " $" + monto);
-        } else {
-            System.out.println("¡Saldo insuficiente!");
-        }
-    }
+    public abstract void retirar(double monto);
 
     public String getTitular() {
         return titular;
