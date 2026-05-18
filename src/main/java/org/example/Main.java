@@ -1,42 +1,40 @@
 package org.example;
 
-import org.example.Cuentas.CuentaBancaria;
 import org.example.Cuentas.CuentaCorriente;
 import org.example.Cuentas.CuentaDeAhorro;
 import org.example.Cuentas.ImpresorCuenta;
+import org.example.Repositorios.RepositorioCuentas;
 import org.example.Notificaciones.CanalNotificacion;
 import org.example.Notificaciones.GestorNotificaciones;
 import org.example.Notificaciones.NotificadorEmail;
 
 import java.util.Arrays;
 
-// App Bancaria
 public class Main {
     public static void main(String[] args) {
-        CuentaBancaria cuenta1 = new CuentaDeAhorro("Pepe", "12345678", 1000);
-        CuentaBancaria cuenta2 = new CuentaCorriente("Pepa", "789456123", 1000, 1000);
         ImpresorCuenta impresor = new ImpresorCuenta();
+        RepositorioCuentas repositorio = new RepositorioCuentas();
 
+        // Mail por donde se envia la notificaciones
         String miCorreo = "ambargorgon@gmail.com";
-        String miPasswordApp = "tkfl pmyy eaho nsed";
+        String miPasswordApp = "htij gvvc tvlq fhop";
 
         CanalNotificacion emailReal = new NotificadorEmail(miCorreo, miPasswordApp);
-
         GestorNotificaciones gestor = new GestorNotificaciones(Arrays.asList(emailReal));
 
-        cuenta1.depositar(500);
-        cuenta1.retirar(200);
-        cuenta2.depositar(100);
-        cuenta2.retirar(2000);
+        // Carga de los 10 usuarios
+        repositorio.agregarCuenta(new CuentaDeAhorro("Ambar", "11111111", 5000));
+        repositorio.agregarCuenta(new CuentaCorriente("Pablo", "22222222", 2000, 1000));
+        repositorio.agregarCuenta(new CuentaDeAhorro("Isabella", "33333333", 1500));
+        repositorio.agregarCuenta(new CuentaCorriente("Juan", "44444444", 3000, 500));
+        repositorio.agregarCuenta(new CuentaDeAhorro("Maria", "55555555", 8000));
+        repositorio.agregarCuenta(new CuentaCorriente("Pedro", "66666666", 1000, 200));
+        repositorio.agregarCuenta(new CuentaDeAhorro("Lucia", "77777777", 4500));
+        repositorio.agregarCuenta(new CuentaCorriente("Marcos", "88888888", 6000, 1500));
+        repositorio.agregarCuenta(new CuentaDeAhorro("Sofia", "99999999", 7200));
+        repositorio.agregarCuenta(new CuentaCorriente("Diego", "10101010", 9000, 2000));
 
-        impresor.imprimirDetallesCuenta(cuenta1);
-        String correoCliente = "ambargrogon@gmail.com";
-        float montoDepositado = 150000f;
-
-        gestor.notificar(
-                correoCliente,
-                "Hola. Se ha registrado un depósito de $" + montoDepositado + " en tu cuenta. Saludos."
-        );
-
+        MenuTerminal menu = new MenuTerminal(repositorio, impresor, gestor) ;
+        menu.iniciar();
     }
 }
